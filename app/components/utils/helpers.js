@@ -8,8 +8,14 @@ var apiKey = "247c5455a1e04df0a47785c833eb1fc2";
 var helper = {
 
     // This function serves our purpose of running the query to geolocate.
-    runQuery: function(title, startdate, enddate) {
-        var url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=${apiKey}&q=${title}&begin_date=${startdate}&end_date=${enddate}`
+    runQuery: function(title, startyear, endyear) {
+        var startYear = startyear + "0101";
+
+        var endYear = endyear + "1231";
+
+        var url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=${apiKey}&q=${title}&begin_date=${startYear}&end_date=${endYear}`;
+
+        console.log("nytimes url = ", url);
 
         return axios.get(url).then(function(response) {
             var articles = response.data.response.docs;

@@ -42,7 +42,7 @@ class Main extends React.Component {
     componentDidUpdate(prevProps, prevState) {
 
         if (prevState.searchTerm !== this.state.searchTerm) {
-            console.log("Got to DidUpdate");
+            console.log("Got to componentDidUpdate");
 
             this.setState({results: []});
             helpers.runQuery(this.state.searchTerm, this.state.startYear, this.state.endYear).then((data) => {
