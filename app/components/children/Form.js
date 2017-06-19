@@ -100,7 +100,7 @@ class Form extends React.Component
         });
     }
 
-    /*getClick(todo) {
+    getClick(todo) {
         helpers.postSaved(todo.head, todo.url).then(function () {
             // After we've done the post... then get the updated Saved
             helpers.getSaved().then(function (response) {
@@ -108,7 +108,7 @@ class Form extends React.Component
                 console.log('Saved', this.state.Saved);
             }.bind(this));
         }.bind(this));
-    }*/
+    }
 
     // Here we describe this component's render method
     render() {
@@ -125,11 +125,10 @@ class Form extends React.Component
                             <label>
                                 Search Term:
                                 <input
-                                    name="term"
+                                    name="searchTerm"
                                     value={this.state.term}
                                     type="text"
                                     className="form-control text-center"
-                                    id="term"
                                     onChange={this.handleChange}
                                     required
                                 />
@@ -144,7 +143,6 @@ class Form extends React.Component
                                     value={this.state.startYear}
                                     type="text"
                                     className="form-control text-center"
-                                    id="term"
                                     onChange={this.handleChange}
                                     required
                                 />
@@ -159,7 +157,6 @@ class Form extends React.Component
                                     value={this.state.endYear}
                                     type="text"
                                     className="form-control text-center"
-                                    id="term"
                                     onChange={this.handleChange}
                                     required
                                 />
