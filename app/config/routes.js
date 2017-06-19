@@ -41,14 +41,11 @@ let routes = (
         <Route path="/" component={Main}>
 
             {/* If user selects Form then show the appropriate component*/}
-            <Route path="Form" component={Form} >
+            <Route path="Form" component={Form}>
 
-                {/* Form has a child options */}
                 <Route path="Results" component={Results} />
-
-                <IndexRoute component={Form} />
-
             </Route>
+
             {/* If user selects History then show the appropriate component*/}
             <Route path="History" component={History} />
 

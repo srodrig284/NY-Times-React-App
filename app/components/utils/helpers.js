@@ -13,6 +13,7 @@ var helper = {
 
         var endYear = endyear + "1231";
 
+
         var url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=${apiKey}&q=${title}&begin_date=${startYear}&end_date=${endYear}`;
 
         console.log("nytimes url = ", url);

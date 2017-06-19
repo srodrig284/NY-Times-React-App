@@ -24,7 +24,7 @@ class Results extends React.Component{
             </div>
         );
     }
-};
+}
 
 // Export the component back for use in other files
 export default Results;

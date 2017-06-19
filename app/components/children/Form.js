@@ -1,18 +1,31 @@
 // Include React
 import React from "react";
 
-// Import sub-components
+// Helper Function
+import helpers from "../utils/helpers";
+
 import Results from "./Results";
+
 
 // Creating the Form component
 class Form extends React.Component
 {
     // Here we set a generic state associated with the text being searched for
     constructor(props){
+
         super(props);
+
         this.state = {
-            term: ""
+            searchTerm: "",
+            startYear: "",
+            endYear: "",
+            results: []
         };
+
+        this.setTerm = this.setTerm.bind(this);
+        this.setStartYear = this.setStartYear.bind(this);
+        this.setEndYear = this.setEndYear.bind(this);
+        this.setResults = this.setResults.bind(this);
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,7 +35,7 @@ class Form extends React.Component
     handleChange(event) {
         const target = event.target;
         const name = target.name;
-
+        console.log("Got to handleChange");
         this.setState({
             [name]: event.target.value
         });
@@ -31,10 +44,72 @@ class Form extends React.Component
     // When a user submits...
     handleSubmit(event) {
         event.preventDefault();
-        // Set the parent to have the search term
-        this.props.setTerm(this.state.term);
+        console.log('got to handlesubmit');
+        console.log('searchTerm = ', this.state.searchTerm);
+        this.setState({results: []});
+        helpers.runQuery(this.state.searchTerm, this.state.startYear, this.state.endYear).then(function (data) {
+            if (data !== this.state.results) {
+                this.setState({ results: data });
+            }
+        }.bind(this));
         this.setState({term: "", startYear: "", endYear: ""});
     }
+
+
+    // if the component changes
+    /*componentDidUpdate(prevProps, prevState) {
+        console.log("Got to componentDidUpdate 1");
+
+        if (prevState.searchTerm !== this.state.searchTerm) {
+            console.log("Got to componentDidUpdate 2");
+
+            helpers.runQuery(this.state.searchTerm, this.state.startYear, this.state.endYear).then((data) => {
+                if (data !== this.state.results) {
+                    console.log(data);
+
+                    this.setState({ results: data });
+                }
+            });
+        }
+    }*/
+
+    // allow children to update the parent
+    setTerm(term) {
+        this.setState({
+            searchTerm: term
+        });
+    }
+
+    // allow children to update the parent
+    setStartYear(startyear) {
+        this.setState({
+            startYear: startyear
+        })
+    }
+
+    // allow children to update the parent
+    setEndYear(endyear) {
+        this.setState({
+            endYear: endyear
+        })
+    }
+
+    setResults(results) {
+        this.setState({
+            results: results
+        });
+    }
+
+    /*getClick(todo) {
+        helpers.postSaved(todo.head, todo.url).then(function () {
+            // After we've done the post... then get the updated Saved
+            helpers.getSaved().then(function (response) {
+                this.setState({Saved: response.data});
+                console.log('Saved', this.state.Saved);
+            }.bind(this));
+        }.bind(this));
+    }*/
+
     // Here we describe this component's render method
     render() {
         return (
@@ -96,6 +171,8 @@ class Form extends React.Component
                         </button>
                     </form>
                 </div>
+                {/*<Results results={this.state.results} getClicked={this.getClick}/>*/}
+                <Results results={this.state.results}/>
             </div>
         );
     }

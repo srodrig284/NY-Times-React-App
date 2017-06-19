@@ -4,6 +4,15 @@ import React from "react";
 
 // Creating the Results component
 class History extends React.Component{
+
+    componentDidMount() {
+        // Get the latest Saved.
+        helpers.getSaved().then(function (response) {
+            if (response !== this.state.Saved) {
+                this.setState({Saved: response.data});
+            }
+        }.bind(this));
+    }
     // Here we render the function
     render() {
         return (
