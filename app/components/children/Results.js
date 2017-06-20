@@ -11,15 +11,18 @@ class Results extends React.Component{
                     <h3>Top Articles</h3>
                 </div>
                 <div className="resultsArea">
-                    {/*Maps through the results array in the constructor*/}
-                    {this.props.results.map((search, i) => {
-                        return (
-                            <p key={i}>
-                                <a href={search.url} target="_blank">{search.head}</a>
-                                <button className="o" onClick={this.props.getClicked.bind(this, search)} type="button btn-success">Save</button>
-                            </p>
-                        );
-                    })}
+                        {/*Maps through the results array in the constructor*/}
+                        {/*{this.props.results.map((search, i) => {
+                            return (
+                                <div className="article-content">
+                                    <p className="article-title"  key={i}>
+                                        {search.headline.main}
+                                    </p>
+                                    <a href={search.url} target="_blank">{search.head}</a>
+                                    <button className="o" onClick={this.props.getClicked.bind(this, search)} type="button btn-success">Save</button>
+                                </div>
+                            );
+                        })}*/}
                 </div>
             </div>
         );

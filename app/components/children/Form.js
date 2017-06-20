@@ -49,29 +49,14 @@ class Form extends React.Component
         this.setState({results: []});
         helpers.runQuery(this.state.searchTerm, this.state.startYear, this.state.endYear).then(function (data) {
             if (data !== this.state.results) {
+                console.log("data = ", data);
+                /*console.log("this.state.results = ", this.state.results);*/
                 this.setState({ results: data });
+                console.log("results = ",this.state.results);
             }
         }.bind(this));
         this.setState({term: "", startYear: "", endYear: ""});
     }
-
-
-    // if the component changes
-    /*componentDidUpdate(prevProps, prevState) {
-        console.log("Got to componentDidUpdate 1");
-
-        if (prevState.searchTerm !== this.state.searchTerm) {
-            console.log("Got to componentDidUpdate 2");
-
-            helpers.runQuery(this.state.searchTerm, this.state.startYear, this.state.endYear).then((data) => {
-                if (data !== this.state.results) {
-                    console.log(data);
-
-                    this.setState({ results: data });
-                }
-            });
-        }
-    }*/
 
     // allow children to update the parent
     setTerm(term) {
@@ -173,7 +158,7 @@ class Form extends React.Component
             </div>
         );
     }
-};
+}
 
 // Export the component back for use in other files
 export default Form;
