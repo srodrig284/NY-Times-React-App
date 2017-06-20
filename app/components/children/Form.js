@@ -65,7 +65,10 @@ class Form extends React.Component
 
 
     getClick(todo) {
-        helpers.postSaved(todo.head, todo.url).then(function () {
+        console.log('getclick = ', todo);
+        var url = todo.url;
+        var title = todo.head;
+        helpers.postSaved(title, url).then(function () {
             // After we've done the post... then get the updated Saved
             /*helpers.getSaved().then(function (response) {
                 this.setState({Saved: response.data});
