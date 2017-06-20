@@ -60,7 +60,7 @@ class Form extends React.Component
                 }
             }
         }.bind(this));
-        this.setState({term: "", startYear: "", endYear: ""});
+        this.setState({searchTerm: "", startYear: "", endYear: ""});
     }
 
 
