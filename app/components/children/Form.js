@@ -90,7 +90,7 @@ class Form extends React.Component
                                 Search Term:
                                 <input
                                     name="searchTerm"
-                                    value={this.state.term}
+                                    value={this.state.searchTerm}
                                     type="text"
                                     className="form-control text-center"
                                     onChange={this.handleChange}

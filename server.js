@@ -65,7 +65,8 @@ app.post("/api", function(req, res) {
     // Here we'll save the location based on the JSON input.
     // We'll use Date.now() to always get the current date time
     Article.create({
-        location: req.body.location,
+        title: req.body.head,
+        url: req.body.url,
         date: Date.now()
     }, function(err) {
         if (err) {
