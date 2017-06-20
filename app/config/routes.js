@@ -49,7 +49,6 @@ let routes = (
             {/* If user selects History then show the appropriate component*/}
             <Route path="History" component={History} />
 
-
         </Route>
     </Router>
 );

@@ -24,7 +24,7 @@ class Main extends React.Component {
             results: []
         };
 
-        this.setTerm = this.setTerm.bind(this);
+        this.setSearchTerm = this.setSearchTerm.bind(this);
         this.setStartYear = this.setStartYear.bind(this);
         this.setEndYear = this.setEndYear.bind(this);
         this.setResults = this.setResults.bind(this);
@@ -32,7 +32,7 @@ class Main extends React.Component {
     }
 
     // allow children to update the parent
-    setTerm(term) {
+    setSearchTerm(term) {
         this.setState({
             searchTerm: term
         });

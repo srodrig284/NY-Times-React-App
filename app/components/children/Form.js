@@ -42,6 +42,13 @@ class Form extends React.Component
         event.preventDefault();
         console.log('got to handlesubmit');
         console.log('searchTerm = ', this.state.searchTerm);
+
+        // Set the parent to have the search term
+        /*this.props.setSearchTerm(this.state.searchterm);
+        this.props.setStartYear(this.state.startYear);
+        this.props.setEndYear(this.state.setEndYear);
+        this.props.setResults(this.state.setResults);*/
+
         this.setState({results: []});
         helpers.runQuery(this.state.searchTerm, this.state.startYear, this.state.endYear).then(function (data) {
             if (data !== this.state.results) {
