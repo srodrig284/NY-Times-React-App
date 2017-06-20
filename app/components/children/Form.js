@@ -10,6 +10,7 @@ import Results from "./Results";
 // Creating the Form component
 class Form extends React.Component
 {
+
     // Here we set a generic state associated with the text being searched for
     constructor(props){
 
@@ -21,11 +22,6 @@ class Form extends React.Component
             endYear: "",
             results: []
         };
-
-        this.setTerm = this.setTerm.bind(this);
-        this.setStartYear = this.setStartYear.bind(this);
-        this.setEndYear = this.setEndYear.bind(this);
-        this.setResults = this.setResults.bind(this);
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -60,32 +56,6 @@ class Form extends React.Component
         this.setState({term: "", startYear: "", endYear: ""});
     }
 
-    // allow children to update the parent
-    setTerm(term) {
-        this.setState({
-            searchTerm: term
-        });
-    }
-
-    // allow children to update the parent
-    setStartYear(startyear) {
-        this.setState({
-            startYear: startyear
-        })
-    }
-
-    // allow children to update the parent
-    setEndYear(endyear) {
-        this.setState({
-            endYear: endyear
-        })
-    }
-
-    setResults(results) {
-        this.setState({
-            results: results
-        });
-    }
 
     getClick(todo) {
         helpers.postSaved(todo.head, todo.url).then(function () {
