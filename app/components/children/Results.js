@@ -19,7 +19,7 @@ class Results extends React.Component{
                                         {search.head}
                                     </p>
                                     <a className="url" href={search.url} target="_blank">{search.url}</a>
-                                    {/*<button className="o" onClick={this.props.getClicked.bind(this, search)} type="button btn-success">Save</button>*/}
+                                    <button className="btn btn-danger btn-sm" onClick={this.props.getClicked.bind(this, search)} type="button btn-success">Save</button>
                                 </div>
                             );
                         })}

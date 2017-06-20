@@ -67,10 +67,10 @@ class Form extends React.Component
     getClick(todo) {
         helpers.postSaved(todo.head, todo.url).then(function () {
             // After we've done the post... then get the updated Saved
-            helpers.getSaved().then(function (response) {
+            /*helpers.getSaved().then(function (response) {
                 this.setState({Saved: response.data});
                 console.log('Saved', this.state.Saved);
-            }.bind(this));
+            }.bind(this));*/
         }.bind(this));
     }
 
@@ -132,8 +132,8 @@ class Form extends React.Component
                         </button>
                     </form>
                 </div>
-                {/*<Results results={this.state.results} getClicked={this.getClick}/>*/}
-                <Results results={this.state.results}/>
+                <Results results={this.state.results} getClicked={this.getClick}/>
+                {/*<Results results={this.state.results}/>*/}
             </div>
         );
     }
