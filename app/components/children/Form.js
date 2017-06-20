@@ -50,9 +50,11 @@ class Form extends React.Component
         helpers.runQuery(this.state.searchTerm, this.state.startYear, this.state.endYear).then(function (data) {
             if (data !== this.state.results) {
                 console.log("data = ", data);
-                /*console.log("this.state.results = ", this.state.results);*/
-                this.setState({ results: data });
-                console.log("results = ",this.state.results);
+                for (var i = 0; i < 4; i++) {
+                    var newResults = {head: data[i].headline.main, url:data[i].web_url};
+                    // Pushes to results array
+                    this.setState({results: this.state.results.concat(newResults)});
+                }
             }
         }.bind(this));
         this.setState({term: "", startYear: "", endYear: ""});
